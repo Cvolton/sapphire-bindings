@@ -4324,7 +4324,7 @@ class GameLevelManager : cocos2d::CCNode {
 	TodoReturn unblockUser(int);
 	TodoReturn updateLevel(GJGameLevel*) = mac 0x515ec0;
 	void uploadLevel(GJGameLevel*);
-	TodoReturn encodeDataTo(DS_Dictionary*);
+	TodoReturn encodeDataTo(DS_Dictionary*) = mac 0x50c700;
 	TodoReturn hasLikedItem(LikeItemType, int, bool, int);
 	TodoReturn removeFriend(int);
 	TodoReturn restoreItems();
@@ -6948,7 +6948,7 @@ class CheckpointObject : cocos2d::CCNode {
 class EditorPauseLayer : CCBlockLayer, FLAlertLayerProtocol {
 	static EditorPauseLayer* create(LevelEditorLayer*);
 
-	bool init(LevelEditorLayer*);
+	bool init(LevelEditorLayer*) = mac 0x26ef60;
 	~EditorPauseLayer();
 
 	void onNewGroupX(cocos2d::CCObject* sender);
@@ -8585,11 +8585,11 @@ class RewardsPage : FLAlertLayer, FLAlertLayerProtocol, GJRewardDelegate {
 	void onClose(cocos2d::CCObject* sender);
 	void onReward(cocos2d::CCObject* sender);
 
-	TodoReturn updateTimers(float);
+	TodoReturn updateTimers(float) = mac 0x1f9460;
 	TodoReturn tryGetRewards();
 	TodoReturn unlockLayerClosed(RewardUnlockLayer*);
 
-	virtual bool init();
+	virtual bool init() = mac 0x1f8590;
 	virtual void registerWithTouchDispatcher();
 	virtual void keyBackClicked();
 	virtual TodoReturn show();
@@ -8881,17 +8881,17 @@ class GJMPDelegate {
 
 [[link(android)]]
 class GJPathsLayer : FLAlertLayer, FLAlertLayerProtocol {
-	static GJPathsLayer* create();
+	static GJPathsLayer* create() = mac 0x2dad20;
 
 	~GJPathsLayer();
 
-	void onPath(cocos2d::CCObject* sender);
+	void onPath(cocos2d::CCObject* sender) = mac 0x2db510;
 	void onClose(cocos2d::CCObject* sender);
 
 	TodoReturn nameForPath(int);
 	TodoReturn darkenButtons(bool);
 
-	virtual bool init();
+	virtual bool init() = mac 0x2dae70;
 	virtual void onExit();
 	virtual void registerWithTouchDispatcher();
 	virtual void keyBackClicked();
@@ -15009,9 +15009,9 @@ class GameCell : TableViewCell {
 
 [[link(android)]]
 class GJUINode : cocos2d::CCNode {
-	static GJUINode* create(UIButtonConfig&);
+	static GJUINode* create(UIButtonConfig&) = mac 0x4a3560;
 
-	bool init(UIButtonConfig&);
+	bool init(UIButtonConfig&) = mac 0x4a5bb0;
 	~GJUINode();
 
 	TodoReturn getOpacity();
