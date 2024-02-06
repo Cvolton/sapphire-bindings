@@ -1366,7 +1366,7 @@ class cocos2d::CCArray {
 
 [[link(win, android)]]
 class cocos2d::CCDictionary {
-	static cocos2d::CCDictionary* create() = mac 0x2ed090;
+	static cocos2d::CCDictionary* create();
 	static cocos2d::CCDictionary* createWithContentsOfFile(char const*);
 	static cocos2d::CCDictionary* createWithContentsOfFileThreadSafe(char const*);
 	static cocos2d::CCDictionary* createWithDictionary(cocos2d::CCDictionary*);
@@ -1697,7 +1697,7 @@ class DS_Dictionary {
 	void setBoolForKey(char const*, bool, bool);
 	void setBoolForKey(char const*, bool) = mac 0x16fc80;
 	void setBoolMapForKey(char const*, gd::map<gd::string, bool>&);
-	void setDictForKey(char const*, cocos2d::CCDictionary*) = mac 0x1721a0;
+	void setDictForKey(char const*, cocos2d::CCDictionary*);
 	void setFloatForKey(char const*, float) = mac 0x16feb0;
 	void setFloatForKey(char const*, float, bool);
 	void setIntegerForKey(char const*, int) = mac 0x16f9a0;
