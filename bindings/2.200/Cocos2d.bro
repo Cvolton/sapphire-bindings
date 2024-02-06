@@ -105,7 +105,7 @@ class cocos2d::CCNode {
 	CCNode() = mac 0x2501f0;
     ~CCNode() = mac 0x250390;
 	
-	cocos2d::CCAction* getActionByTag(int);
+	cocos2d::CCAction* getActionByTag(int) = mac 0x252000;
 	cocos2d::CCComponent* getComponent(char const*) const;
 	int getScriptHandler();
 	cocos2d::CCAffineTransform getTransformTemp();
@@ -146,7 +146,7 @@ class cocos2d::CCNode {
 	void transform();
 	void transformAncestors();
 	void unschedule(cocos2d::SEL_SCHEDULE) = mac 0x252280;
-	void unscheduleAllSelectors();
+	void unscheduleAllSelectors() = mac 0x250e30;
 	void unscheduleUpdate() = mac 0x252170;
 	void updateChildIndexes();
 
@@ -164,7 +164,7 @@ class cocos2d::CCNode {
 	virtual void setScaleY(float) = mac 0x250760;
 	virtual float getScaleY() = mac 0x250750;
 	virtual void setScale(float) = mac 0x2506e0;
-	virtual float getScale() = mac 0x250720;
+	virtual float getScale() = mac 0x2506d0;
 	virtual void setScale(float, float) = mac 0x250700;
 	virtual void setPosition(cocos2d::CCPoint const&) = mac 0x250790;
 	virtual cocos2d::CCPoint const& getPosition() = mac 0x250780;
@@ -333,7 +333,7 @@ class cocos2d::CCScene {
 	// CCScene(cocos2d::CCScene const&);
 	// CCScene();
 
-	virtual bool init();
+	virtual bool init() = mac 0x26ebf0;
 }
 
 [[link(win, android)]]
@@ -360,10 +360,10 @@ class cocos2d::CCScheduler {
 	void scheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*, float, bool);
 	void scheduleUpdateForTarget(cocos2d::CCObject*, int, bool) = mac 0x420a30;
 	void unscheduleAll();
-	void unscheduleAllForTarget(cocos2d::CCObject*);
+	void unscheduleAllForTarget(cocos2d::CCObject*) = mac 0x420ff0;
 	void unscheduleAllWithMinPriority(int);
 	void unscheduleScriptEntry(unsigned);
-	void unscheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*);
+	void unscheduleSelector(cocos2d::SEL_SCHEDULE, cocos2d::CCObject*) = mac 0x41f960;
 	void unscheduleUpdateForTarget(cocos2d::CCObject const*);
 
 	virtual void update(float) = mac 0x421a70;
@@ -558,7 +558,7 @@ class cocos2d::CCTouchHandler {
 
 [[link(win, android)]]
 class cocos2d::CCTextureCache {
-	static void purgeSharedTextureCache();
+	static void purgeSharedTextureCache() = mac 0x5b16d0;
 	static void reloadAllTextures();
 	static cocos2d::CCTextureCache* sharedTextureCache() = mac 0x5b1450;
 
@@ -614,11 +614,11 @@ class cocos2d::CCSet {
 	cocos2d::CCSetIterator begin();
 	bool containsObject(cocos2d::CCObject*);
 	cocos2d::CCSet* copy();
-	int count();
+	int count() = mac 0x775070;
 	cocos2d::CCSetIterator end();
 	cocos2d::CCSet* mutableCopy() = mac 0x775030;
 	void removeAllObjects();
-	void removeObject(cocos2d::CCObject*);
+	void removeObject(cocos2d::CCObject*) = mac 0x775130;
 
 	virtual void acceptVisitor(cocos2d::CCDataVisitor&);
 }
@@ -807,12 +807,12 @@ class cocos2d::CCDirector {
 	void purgeCachedData();
 	void purgeDirector() = mac 0x460e10;
 	bool pushScene(cocos2d::CCScene*) = mac 0x4608a0;
-	void removeStatsLabel();
+	void removeStatsLabel() = mac 0x461020;
 	bool replaceScene(cocos2d::CCScene*) = mac 0x460950;
 	void resetSmoothFixCounter();
 	void reshapeProjection(cocos2d::CCSize const&);
 	void resume() = mac 0x460fa0;
-	void runWithScene(cocos2d::CCScene*);
+	void runWithScene(cocos2d::CCScene*) = mac 0x460800;
 	int sceneCount() = mac 0x460d20;
 	void setupScreenScale(cocos2d::CCSize, cocos2d::CCSize, cocos2d::TextureQuality);
 	void showFPSLabel();
@@ -935,7 +935,7 @@ class cocos2d::CCRotateBy {
 
 [[link(win, android)]]
 class cocos2d::CCSpriteFrameCache {
-	static void purgeSharedSpriteFrameCache();
+	static void purgeSharedSpriteFrameCache() = mac 0x2f8740;
 	static cocos2d::CCSpriteFrameCache* sharedSpriteFrameCache() = mac 0x2f85f0;
 
 	bool init();
@@ -967,7 +967,7 @@ class cocos2d::CCSpriteBatchNode {
 	bool initWithFile(char const*, unsigned);
 	bool initWithTexture(cocos2d::CCTexture2D*, unsigned) = mac 0x167320;
 
-	int getAtlasCapacity();
+	int getAtlasCapacity() = mac 0x168800;
 	cocos2d::CCArray* getDescendants();
 	bool getManualSortChildren() const;
 	cocos2d::CCTextureAtlas* getTextureAtlas();
