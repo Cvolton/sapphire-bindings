@@ -1796,7 +1796,7 @@ class GameManager : GManager {
 	TodoReturn getGTexture(int);
 	TodoReturn joinDiscord();
 	TodoReturn saveAdTimer();
-	TodoReturn startUpdate();
+	TodoReturn startUpdate() = mac 0x354bc0;
 	TodoReturn unloadIcons(int);
 	void unlockColor(int, UnlockType) = mac 0x3560d0;
 	TodoReturn updateMusic();
@@ -1860,7 +1860,7 @@ class GameManager : GManager {
 	TodoReturn unloadBackground();
 	TodoReturn activeIconForType(IconType) = mac 0x35e430;
 	TodoReturn iconAndTypeForKey(int, int&, int&);
-	TodoReturn loadVideoSettings();
+	TodoReturn loadVideoSettings() = mac 0x365ad0;
 	TodoReturn logLoadedIconInfo();
 	TodoReturn resetDPadSettings(bool);
 	TodoReturn returnToLastScene(GJGameLevel*);
@@ -15177,7 +15177,7 @@ class InfoLayer : FLAlertLayer, LevelCommentDelegate, CommentUploadDelegate, FLA
 
 	TodoReturn reloadWindow();
 	TodoReturn confirmReport(cocos2d::CCObject*) = mac 0x7727d0;
-	TodoReturn setupPageInfo(gd::string, char const*);
+	TodoReturn setupPageInfo(gd::string, char const*) = mac 0x774030;
 	TodoReturn setupLevelInfo() = mac 0x772060;
 	TodoReturn toggleCommentMode(cocos2d::CCObject*) = mac 0x772b20;
 	TodoReturn updateLevelsLabel();
@@ -15189,15 +15189,15 @@ class InfoLayer : FLAlertLayer, LevelCommentDelegate, CommentUploadDelegate, FLA
 	/* unverified signature */
 	bool isCorrect(char const*);
 
-	virtual void registerWithTouchDispatcher();
-	virtual void keyBackClicked();
-	virtual TodoReturn show();
-	virtual TodoReturn loadCommentsFinished(cocos2d::CCArray*, char const*);
-	virtual TodoReturn loadCommentsFailed(char const*);
-	virtual TodoReturn commentUploadFinished(int);
-	virtual TodoReturn commentUploadFailed(int, CommentError);
-	virtual TodoReturn updateUserScoreFinished();
-	virtual TodoReturn FLAlert_Clicked(FLAlertLayer*, bool);
+	virtual void registerWithTouchDispatcher() = mac 0x773d50;
+	virtual void keyBackClicked() = mac 0x773c40;
+	virtual TodoReturn show() = mac 0x774ae0;
+	virtual TodoReturn loadCommentsFinished(cocos2d::CCArray*, char const*) = mac 0x773ec0;
+	virtual TodoReturn loadCommentsFailed(char const*) = mac 0x773f90;
+	virtual TodoReturn commentUploadFinished(int) = mac 0x774690;
+	virtual TodoReturn commentUploadFailed(int, CommentError) = mac 0x7747e0;
+	virtual TodoReturn updateUserScoreFinished() = mac 0x7744f0;
+	virtual TodoReturn FLAlert_Clicked(FLAlertLayer*, bool) = mac 0x773a00;
 
 	GJGameLevel* m_level;
     GJUserScore* m_score;
